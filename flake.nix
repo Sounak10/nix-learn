@@ -117,12 +117,12 @@
           syntax =
             pkgs.runCommand "nix-lab-syntax"
               {
-                nativeBuildInputs = [ pkgs.nix ];
+                nativeBuildInputs = [ pkgs.nixfmt-rfc-style ];
                 src = self;
               }
               ''
                 while IFS= read -r file; do
-                  nix-instantiate --parse "$file" >/dev/null
+                  nixfmt --check "$file"
                 done < <(find "$src"/examples "$src"/exercises "$src"/solutions \
                   -type f -name '*.nix' -print)
                 touch "$out"

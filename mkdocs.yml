@@ -82,8 +82,12 @@ nav:
       - The Nix Module System: part-6-modules/01-the-nix-module-system.md
   - "Part VII — Systems":
       - NixOS, Home Manager, and nix-darwin: part-7-systems/01-declarative-systems.md
+      - Home Manager Deep Dive: part-7-systems/02-home-manager-deep-dive.md
+      - nix-darwin and the macOS Track: part-7-systems/03-nix-darwin-macos-track.md
   - "Part VIII — Operations":
       - Operating Nix at Scale: part-8-operations/01-operating-nix-at-scale.md
+      - CI and Binary Cache Cookbook: part-8-operations/02-ci-and-cache-cookbook.md
+      - Secrets and Deployment Cookbook: part-8-operations/03-secrets-and-deployment-cookbook.md
   - "Part IX — Internals":
       - Store, Daemon, Protocol, and Paths: part-9-internals/01-store-daemon-protocol-and-paths.md
       - Derivation Graphs and Closure Copying: part-9-internals/02-derivations-graphs-and-closure-copying.md
@@ -91,6 +95,10 @@ nav:
       - Content Addressing and Performance: part-9-internals/04-content-addressing-and-evaluator-performance.md
       - Debugging Store and Evaluation: part-9-internals/05-debugging-store-and-evaluation.md
       - Security, Policy, and Anti-patterns: part-9-internals/06-security-sandboxing-policy-and-antipatterns.md
+      - Advanced Evaluation: part-9-internals/07-advanced-evaluation.md
+  - "Part X — Practical Workflows":
+      - Daily Development: part-10-practical-workflows/01-daily-development.md
+      - End-to-End Service Project: part-10-practical-workflows/02-end-to-end-service-project.md
   - Appendices:
       - Troubleshooting Decision Trees: appendices/troubleshooting-decision-trees.md
       - Language and CLI Cheat Sheets: appendices/language-and-cli-cheat-sheets.md

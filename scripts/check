@@ -6,16 +6,25 @@ cd "$(dirname "$0")/.."
 echo "==> syntax"
 while IFS= read -r file; do
   nix-instantiate --parse "$file" >/dev/null
-done < <(find examples exercises solutions -type f -name '*.nix' -print | sort)
+done < <(
+  find examples exercises projects solutions tracks \
+    -type f -name '*.nix' -print | sort
+)
 
 echo "==> evaluations"
 test "$(nix eval --raw .#lib.languageResult)" = "hello, NIX!"
 nix eval --json .#lib.moduleResult | grep -q '"port":8080'
 nix eval --json .#lib.homeManagerResult | grep -q '"programs"'
 nix eval --json .#lib.nixosEvaluations.x86_64-linux | grep -q '"hostName":"nix-lab"'
+test "$(nix eval --raw --file examples/advanced-evaluation/safe-pure-data.nix \
+  --apply 'value: builtins.concatStringsSep "," value.enabledNames')" = "alpha,gamma"
+nix eval --json --file examples/advanced-evaluation/safe-source-filter.nix \
+  | grep -q '"files":\["kept.txt"\]'
 
 echo "==> flake checks"
 nix flake check --print-build-logs
+nix flake check "path:$PWD/projects/hello-service" --print-build-logs
+nix flake check "path:$PWD/tracks/macos" --all-systems --no-build
 
 echo "==> package and app links"
 out_links="$(mktemp -d)"

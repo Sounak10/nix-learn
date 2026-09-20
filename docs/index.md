@@ -59,6 +59,8 @@ labels, the experiment workflow, and Docker limitations.
   design.
 - NixOS, Home Manager, nix-darwin, multi-host organization, CI, caches,
   distributed builds, Hydra, deployment, security, and internals.
+- Daily direnv/editor workflows, advanced evaluation, sops-nix and agenix,
+  deploy-rs and Colmena, and a complete packaged service project.
 
 Nix and Nixpkgs continue to evolve. The guide emphasizes durable concepts,
 marks experimental and legacy interfaces, and links to primary documentation

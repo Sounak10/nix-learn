@@ -66,10 +66,10 @@ docker compose run --rm docs build --strict
 | Goal                  | Suggested route                                                         |
 | --------------------- | ----------------------------------------------------------------------- |
 | Complete curriculum   | Read every chapter in order                                             |
-| Application developer | Foundations → Language → Builds → Flakes → Packaging → Operations       |
+| Application developer | Foundations → Language → Builds → Flakes → Packaging → Practical Workflows |
 | Package maintainer    | Language → Builds → Flakes → Nixpkgs → Internals                        |
 | NixOS administrator   | Foundations → Language → Flakes → Modules → Systems → Operations        |
-| macOS configuration   | Foundations → Language → Flakes → Modules → Home Manager and nix-darwin |
+| macOS configuration   | Foundations → Flakes → Modules → Home Manager Deep Dive → macOS Track   |
 | Advanced/debugging    | Builds → Modules → Operations → Internals → Appendices                  |
 
 The tracks are shortcuts, not separate editions. Concepts deliberately recur
@@ -111,6 +111,8 @@ Keep three questions in mind:
 - `examples/` — small runnable examples referenced by chapters.
 - `exercises/` — tasks with incomplete or guided inputs.
 - `solutions/` — worked solutions.
+- `tracks/` — native platform tracks, including macOS.
+- `projects/` — larger end-to-end milestone projects.
 - `flake.nix` — development shell, apps, packages, and checks.
 - `Dockerfile`, `compose.yaml` — reproducible Linux lab.
 - `scripts/lab` — enter or manage the lab.

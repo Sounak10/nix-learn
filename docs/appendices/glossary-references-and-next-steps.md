@@ -33,11 +33,24 @@ A registered starting point whose reachable store closure must remain alive.
 **Input-addressed derivation**  
 A derivation whose output identity is based primarily on build recipe and input identities rather than realized output content.
 
+**Import from derivation (IFD)**  
+Evaluation that realizes a derivation and then imports generated Nix code. IFD
+crosses the evaluation/build boundary and can harm evaluation purity,
+parallelism, and availability.
+
+**Home Manager**  
+A module-system application that builds and activates declarative user
+environments on NixOS, other Linux distributions, and macOS.
+
 **NAR**  
 Nix Archive: the canonical serialization used to hash and transfer filesystem objects.
 
 **NARInfo**  
 Binary-cache metadata connecting a store path to a NAR URL, hashes, sizes, references, deriver, and signatures.
+
+**nix-darwin**  
+A module-system application for supported macOS configuration surfaces. It
+does not replace the macOS kernel, security model, updater, or launchd.
 
 **Output**  
 One result of a derivation, such as `out`, `dev`, `lib`, or `doc`.
@@ -83,6 +96,12 @@ Use the manuals for precise behavior:
 - [Nix store reference](https://nix.dev/manual/nix/latest/store/)
 - [Nixpkgs manual](https://nixos.org/manual/nixpkgs/stable/)
 - [NixOS manual](https://nixos.org/manual/nixos/stable/)
+- [Home Manager manual](https://nix-community.github.io/home-manager/)
+- [nix-darwin manual](https://nix-darwin.github.io/nix-darwin/manual/)
+- [sops-nix](https://github.com/Mic92/sops-nix)
+- [agenix](https://github.com/ryantm/agenix)
+- [deploy-rs](https://github.com/serokell/deploy-rs)
+- [Colmena](https://colmena.cli.rs/)
 
 Follow project sources when behavior is version-sensitive:
 

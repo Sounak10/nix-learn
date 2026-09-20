@@ -38,10 +38,14 @@
 ## Part VII — Declarative Systems
 
 - [NixOS, Home Manager, and nix-darwin](docs/part-7-systems/01-declarative-systems.md)
+- [Home Manager Deep Dive](docs/part-7-systems/02-home-manager-deep-dive.md)
+- [nix-darwin and the macOS Track](docs/part-7-systems/03-nix-darwin-macos-track.md)
 
 ## Part VIII — Operations
 
 - [Operating Nix at Scale](docs/part-8-operations/01-operating-nix-at-scale.md)
+- [CI and Binary Cache Cookbook](docs/part-8-operations/02-ci-and-cache-cookbook.md)
+- [Secrets and Deployment Cookbook](docs/part-8-operations/03-secrets-and-deployment-cookbook.md)
 
 ## Part IX — Internals and Advanced Practice
 
@@ -51,6 +55,12 @@
 - [Content Addressing and Evaluator Performance](docs/part-9-internals/04-content-addressing-and-evaluator-performance.md)
 - [Debugging Store and Evaluation](docs/part-9-internals/05-debugging-store-and-evaluation.md)
 - [Security, Sandboxing, Policy, and Anti-patterns](docs/part-9-internals/06-security-sandboxing-policy-and-antipatterns.md)
+- [Advanced Evaluation](docs/part-9-internals/07-advanced-evaluation.md)
+
+## Part X — Practical Workflows
+
+- [Daily Development](docs/part-10-practical-workflows/01-daily-development.md)
+- [End-to-End Service Project](docs/part-10-practical-workflows/02-end-to-end-service-project.md)
 
 ## Appendices
 
@@ -62,3 +72,5 @@
 
 - [Exercises](exercises/README.md)
 - [Solutions](solutions/README.md)
+- [Native macOS Track](tracks/macos/README.md)
+- [Hello Service Project](projects/hello-service/README.md)

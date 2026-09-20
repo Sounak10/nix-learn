@@ -1,6 +1,6 @@
 site_name: Nix, From First Principles
 site_description: A practical guide to the Nix language, package manager, Nixpkgs, NixOS, and its ecosystem
-site_url: http://localhost:8000
+site_url: !ENV [SITE_URL, "http://localhost:8000"]
 docs_dir: docs
 site_dir: /tmp/nix-guide-site
 strict: true

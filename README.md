@@ -57,6 +57,11 @@ To verify that every documentation page builds without warnings:
 docker compose run --rm docs build --strict
 ```
 
+Pushes to `main` publish the book through
+[GitHub Pages](https://docs.github.com/pages). Before the first deployment,
+open the repository's **Settings → Pages** and select **GitHub Actions** as the
+source. You can also run the `Deploy documentation` workflow manually.
+
 > Docker is the default environment for package-manager and language labs. A
 > container is not a booted NixOS machine. NixOS boot, service, and VM labs
 > are marked separately and may require Linux, KVM, or a real NixOS host.

@@ -1,0 +1,38 @@
+#!/bin/sh
+set -eu
+
+inside_container() {
+  [ -f /.dockerenv ] || [ "${LAB_CONTAINER:-}" = 1 ]
+}
+
+if inside_container; then
+  command="${1:-shell}"
+  [ "$#" -eq 0 ] || shift
+  case "$command" in
+    shell) exec nix develop --command bash "$@" ;;
+    check) exec ./scripts/check "$@" ;;
+    *) exec nix "$command" "$@" ;;
+  esac
+fi
+
+case "${1:-shell}" in
+  build)
+    shift
+    exec docker compose build "$@"
+    ;;
+  shell)
+    shift
+    exec docker compose run --rm lab shell "$@"
+    ;;
+  check)
+    shift
+    exec docker compose run --rm lab check "$@"
+    ;;
+  down)
+    shift
+    exec docker compose down "$@"
+    ;;
+  *)
+    exec docker compose run --rm lab "$@"
+    ;;
+esac

@@ -1,0 +1,7 @@
+result
+result-*
+.direnv/
+.envrc.local
+.DS_Store
+*.qcow2
+*.vmdk

@@ -1,0 +1,97 @@
+site_name: Nix, From First Principles
+site_description: A practical guide to the Nix language, package manager, Nixpkgs, NixOS, and its ecosystem
+site_url: http://localhost:8000
+docs_dir: docs
+site_dir: /tmp/nix-guide-site
+strict: true
+
+theme:
+  name: material
+  language: en
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Welcome: index.md
+  - Orientation:
+      - The Nix Concept Map: 00-concept-map.md
+      - Reading and Lab Guide: 01-reading-and-lab-guide.md
+  - "Part I — Foundations":
+      - Mental Model and Installation: part-1-foundations/01-mental-model-and-installation.md
+      - Store Paths and the Modern CLI: part-1-foundations/02-store-paths-and-modern-cli.md
+      - References, Closures, and Caches: part-1-foundations/03-references-closures-and-caches.md
+      - Profiles, Generations, Roots, and GC: part-1-foundations/04-profiles-generations-roots-and-gc.md
+  - "Part II — The Nix Language":
+      - Values and Composition: part-2-language/01-values-and-composition.md
+      - Functions, Operators, and Modules: part-2-language/02-functions-operators-and-modules.md
+      - Laziness, Purity, and Diagnostics: part-2-language/03-laziness-purity-and-diagnostics.md
+  - "Part III — Builds and Derivations":
+      - Derivations and Realization: part-3-builds/01-derivations-and-realization.md
+      - Sandboxing, Hashes, and Addressing: part-3-builds/02-sandboxing-hashes-and-addressing.md
+      - Reproducibility in Practice: part-3-builds/03-reproducibility-in-practice.md
+  - "Part IV — Flakes":
+      - Flakes and Reproducible Projects: part-4-flakes/01-flakes-and-reproducible-projects.md
+  - "Part V — Nixpkgs":
+      - Nixpkgs and Package Engineering: part-5-nixpkgs/01-nixpkgs-and-package-engineering.md
+  - "Part VI — Modules":
+      - The Nix Module System: part-6-modules/01-the-nix-module-system.md
+  - "Part VII — Systems":
+      - NixOS, Home Manager, and nix-darwin: part-7-systems/01-declarative-systems.md
+  - "Part VIII — Operations":
+      - Operating Nix at Scale: part-8-operations/01-operating-nix-at-scale.md
+  - "Part IX — Internals":
+      - Store, Daemon, Protocol, and Paths: part-9-internals/01-store-daemon-protocol-and-paths.md
+      - Derivation Graphs and Closure Copying: part-9-internals/02-derivations-graphs-and-closure-copying.md
+      - Remote Builds, Caches, and Trust: part-9-internals/03-remote-builds-binary-caches-and-trust.md
+      - Content Addressing and Performance: part-9-internals/04-content-addressing-and-evaluator-performance.md
+      - Debugging Store and Evaluation: part-9-internals/05-debugging-store-and-evaluation.md
+      - Security, Policy, and Anti-patterns: part-9-internals/06-security-sandboxing-policy-and-antipatterns.md
+  - Appendices:
+      - Troubleshooting Decision Trees: appendices/troubleshooting-decision-trees.md
+      - Language and CLI Cheat Sheets: appendices/language-and-cli-cheat-sheets.md
+      - Glossary, References, and Next Steps: appendices/glossary-references-and-next-steps.md

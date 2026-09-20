@@ -1,0 +1,35 @@
+services:
+  docs:
+    image: squidfunk/mkdocs-material:9.6.20@sha256:86d21da4f45f16e30774bf911e5b4795da13ce0cd197dbf8d3d059f256b2cc37
+    command: serve --dev-addr=0.0.0.0:8000
+    read_only: true
+    ports:
+      - "127.0.0.1:${DOCS_PORT:-8000}:8000"
+    tmpfs:
+      - /tmp
+    volumes:
+      - .:/docs:ro
+
+  lab:
+    build:
+      context: .
+      args:
+        LEARNER_UID: "${LAB_UID:-1000}"
+        LEARNER_GID: "${LAB_GID:-1000}"
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    environment:
+      HOME: /home/learner
+      NIX_CONFIG: |
+        experimental-features = nix-command flakes
+        build-users-group =
+        sandbox = false
+    volumes:
+      - .:/workspace
+      - nix-store:/nix
+      - nix-home:/home/learner
+
+volumes:
+  nix-store:
+  nix-home:

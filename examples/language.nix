@@ -1,0 +1,73 @@
+let
+  name = "nix";
+  toUpper =
+    value:
+    builtins.replaceStrings
+      [
+        "a"
+        "b"
+        "c"
+        "d"
+        "e"
+        "f"
+        "g"
+        "h"
+        "i"
+        "j"
+        "k"
+        "l"
+        "m"
+        "n"
+        "o"
+        "p"
+        "q"
+        "r"
+        "s"
+        "t"
+        "u"
+        "v"
+        "w"
+        "x"
+        "y"
+        "z"
+      ]
+      [
+        "A"
+        "B"
+        "C"
+        "D"
+        "E"
+        "F"
+        "G"
+        "H"
+        "I"
+        "J"
+        "K"
+        "L"
+        "M"
+        "N"
+        "O"
+        "P"
+        "Q"
+        "R"
+        "S"
+        "T"
+        "U"
+        "V"
+        "W"
+        "X"
+        "Y"
+        "Z"
+      ]
+      value;
+  shout = value: "${toUpper value}!";
+in
+{
+  greeting = "hello, ${shout name}";
+  numbers = builtins.map (number: number * 2) [
+    1
+    2
+    3
+  ];
+  inherited = { inherit name; };
+}

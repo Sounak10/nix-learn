@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+echo "==> syntax"
+while IFS= read -r file; do
+  nix-instantiate --parse "$file" >/dev/null
+done < <(find examples exercises solutions -type f -name '*.nix' -print | sort)
+
+echo "==> evaluations"
+test "$(nix eval --raw .#lib.languageResult)" = "hello, NIX!"
+nix eval --json .#lib.moduleResult | grep -q '"port":8080'
+nix eval --json .#lib.homeManagerResult | grep -q '"programs"'
+nix eval --json .#lib.nixosEvaluations.x86_64-linux | grep -q '"hostName":"nix-lab"'
+
+echo "==> flake checks"
+nix flake check --print-build-logs
+
+echo "==> package and app links"
+out_links="$(mktemp -d)"
+trap 'rm -rf "$out_links"' EXIT
+nix build .#hello --out-link "$out_links/hello"
+nix build .#app --out-link "$out_links/app"
+test -x "$out_links/hello/bin/nix-lab-hello"
+test -x "$out_links/app/bin/nix-lab-app"
+test "$(nix run .#app)" = "nix lab app"
+
+echo "All lab checks passed."

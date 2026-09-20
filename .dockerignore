@@ -1,0 +1,6 @@
+.git
+.direnv
+.envrc
+result
+result-*
+**/.DS_Store
